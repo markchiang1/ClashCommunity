@@ -1,14 +1,13 @@
-import React, { Component, Fragment } from "react";
-import "./App.css";
+import React, { Component, Fragment } from 'react'
+import './App.css'
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from './Components/NavBar'
 import Roles from './Components/Roles'
 
-import Home from "./pages/Home";
+import Home from './pages/Home'
 
 class App extends Component {
-
-  render() {
+  render () {
     return (
       <Fragment>
 
@@ -31,4 +30,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

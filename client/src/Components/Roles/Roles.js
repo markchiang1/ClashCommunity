@@ -1,19 +1,17 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from 'react'
 import './Roles.css'
-
-
 
 const Roles = props => {
   return (
     <Fragment>
 
-      <div id="Roles">
+      <div id='Roles'>
 
         <div className='row'>
           <div className='col s1 '>
-            <img className='icon ' src='/assets/img/Top_Icon.png' alt='top icon'/>
-            <img className='icon' src='/assets/img/Mid_Icon.png' alt='mid icon'/>
-            <img className='icon' src='/assets/img/Support_Icon.png' alt='support icon'/>
+            <img className='icon ' src='/assets/img/Top_Icon.png' alt='top icon' />
+            <img className='icon' src='/assets/img/Mid_Icon.png' alt='mid icon' />
+            <img className='icon' src='/assets/img/Support_Icon.png' alt='support icon' />
           </div>
           <div className='col s5'>
             <div className='row name'>
@@ -31,9 +29,9 @@ const Roles = props => {
           </div>
 
           <div className='col s1'>
-            <img className='icon' src='/assets/img/Jungle_Icon.png' alt='jungle icon'/>
-            <img className='icon' src='/assets/img/Bottom_Icon.png' alt='bottom icon'/>
-            <img className='icon' src='/assets/img/Fill_Icon.png' alt='fill icon'/>
+            <img className='icon' src='/assets/img/Jungle_Icon.png' alt='jungle icon' />
+            <img className='icon' src='/assets/img/Bottom_Icon.png' alt='bottom icon' />
+            <img className='icon' src='/assets/img/Fill_Icon.png' alt='fill icon' />
           </div>
           <div className='col s5'>
             <div className='row name'>
@@ -54,8 +52,7 @@ const Roles = props => {
       </div>
 
     </Fragment>
-  );
-};
+  )
+}
 
-
-export default Roles;
+export default Roles
