@@ -5,6 +5,7 @@ import NavBar from './Components/NavBar';
 import Players from "./pages/Players";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import Login from "./pages/Login";
 
 class App extends Component {
 
@@ -17,6 +18,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/players" component={Players} />
               <Route exact path="/players/:id" component={Profile} />
+              <Route exact path="/login" component={Login} />
             </Switch>
           </div>
         </Router>
