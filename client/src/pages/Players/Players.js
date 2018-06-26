@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
+import { Col, Row, Container } from "../../Components/Grid";
+import { Link } from "react-router-dom";
+import { List, ListItem } from "../../Components/List";
+import Jumbotron from "../../Components/Jumbotron";
 
 
 class Players extends Component {
@@ -13,7 +15,7 @@ class Players extends Component {
     this.loadPlayers();
   }
 
-  loadUsers = () => {
+  loadPlayers = () => {
     API.getPlayers()
       .then(res => this.setState({ players: res.data }))
       .catch(err => console.log(err));
@@ -33,12 +35,13 @@ class Players extends Component {
               <List>
                 {this.state.players.map(player => (
                     <ListItem key={player._id}>
-                    <a href={"/players/" + player._id}>
+                    {/* <a href={"/players/" + player._id}> */}
+                    <Link to={"/player/" + player._id}>
                       <strong>
                         {player.name} 
                       </strong>
-                    </a>
-                   
+                    {/* </a> */}
+                    </Link>
                   </ListItem>
                 ))}
               </List>

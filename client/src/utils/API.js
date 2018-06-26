@@ -1,16 +1,16 @@
 import axios from "axios";
 
 export default {
-  // Gets all Users
-  getAllPlayers: function() {
-    return axios.get("/api/players");
+  // Gets all player
+  getPlayers: function() {
+    return axios.get("/api/player");
   },
   // Gets the user with the given id
   get: function(id) {
-    return axios.get("/api/players/" + id);
+    return axios.get("/api/player/" + id);
   },
   // For saving players, not sure if needed
   // savePlayer: function(UserData) {
-  //   return axios.post("/api/players", UserData);
+  //   return axios.post("/api/player", UserData);
   // }
 };

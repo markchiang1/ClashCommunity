@@ -10,7 +10,9 @@ class Profile extends Component {
 
 render() {
     return (
-      <div></div>
+      <div>
+        <h3>profile page</h3>
+      </div>
     )
   }
 };
