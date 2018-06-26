@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import NavBar from './Components/NavBar';
+// import NavBar from './Components/NavBar';
 import Players from "./pages/Players";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
@@ -13,12 +13,11 @@ class App extends Component {
     return (
         <Router>
           <div>
-            {/* <NavBar /> */}
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" component={Login} />
+              <Route exact path="/home" component={Home} />
               <Route exact path="/players" component={Players} />
               <Route exact path="/players/:id" component={Profile} />
-              <Route exact path="/login" component={Login} />
             </Switch>
           </div>
         </Router>

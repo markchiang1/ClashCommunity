@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import NavBar from '../../Components/NavBar';
 
 class Profile extends Component {
     state = {
@@ -11,6 +12,7 @@ class Profile extends Component {
 render() {
     return (
       <div>
+        <NavBar />
         <h3>profile page</h3>
       </div>
     )

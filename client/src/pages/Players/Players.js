@@ -4,6 +4,7 @@ import { Col, Row, Container } from "../../Components/Grid";
 import { Link } from "react-router-dom";
 import { List, ListItem } from "../../Components/List";
 import Jumbotron from "../../Components/Jumbotron";
+import NavBar from '../../Components/NavBar';
 
 
 class Players extends Component {
@@ -24,6 +25,7 @@ class Players extends Component {
   render() {
     return (
       <Container fluid>
+      <NavBar />
         <Row>
           <Col size="md-12 sm-12">
             <Jumbotron>
