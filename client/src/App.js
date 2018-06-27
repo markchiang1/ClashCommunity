@@ -13,7 +13,7 @@ class App extends Component {
 
 
   handleFormSubmit = event => {
-    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
+    // When the form is submitted, prevent its default behavior, get player update and set state
     event.preventDefault();
     API.getPlayers(this.state.players)
       .then(res => this.setState({ players: res.data }))
@@ -24,13 +24,15 @@ class App extends Component {
     return (
         <Router>
           <div>
-            {/* <NavBar /> */}
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" component={Login} />
+              <Route exact path="/home" component={Home} />
               <Route exact path="/players" component={Players} />
               <Route exact path="/players/:id" component={Profile} />
+
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/login" component={Login} />
+
             </Switch>
           </div>
         </Router>
