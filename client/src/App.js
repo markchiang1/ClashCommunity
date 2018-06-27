@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import API from "./utils/API";
 import Signup from "./pages/SignUp"
+import Login from "./pages/Login";
 
 class App extends Component {
 
@@ -23,12 +24,13 @@ class App extends Component {
     return (
         <Router>
           <div>
-            <NavBar />
+            {/* <NavBar /> */}
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/players" component={Players} />
               <Route exact path="/players/:id" component={Profile} />
               <Route exact path="/signup" component={Signup} />
+              <Route exact path="/login" component={Login} />
             </Switch>
           </div>
         </Router>

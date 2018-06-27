@@ -9,11 +9,11 @@ const Info = () => (
         <div className="row">
           <div className="input-field col s12">
             <input id="userName" type="text" className="validate"></input>
-            <label for="userName">username</label>
+            <label htmlFor="userName">username</label>
           </div>
           <div className="input-field col s12">
             <input id="Password" type="text" className="validate"></input>
-            <label for="Password">password</label>
+            <label htmlFor="Password">password</label>
           </div>
         </div>
         <div className="row">

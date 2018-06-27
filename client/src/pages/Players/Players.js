@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../Components/Grid";
+import { Link } from "react-router-dom";
 import { List, ListItem } from "../../Components/List";
 import Jumbotron from "../../Components/Jumbotron";
 
@@ -34,12 +35,13 @@ class Players extends Component {
               <List>
                 {this.state.players.map(player => (
                     <ListItem key={player._id}>
-                    <a href={"/players/" + player._id}>
+                    {/* <a href={"/players/" + player._id}> */}
+                    <Link to={"/player/" + player._id}>
                       <strong>
                         {player.name} 
                       </strong>
-                    </a>
-                   
+                    {/* </a> */}
+                    </Link>
                   </ListItem>
                 ))}
               </List>

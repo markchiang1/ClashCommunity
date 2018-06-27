@@ -1,0 +1,361 @@
+strong {
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+a,
+input[type="submit"],
+button {
+  cursor: pointer;
+  transition: color 150ms ease-in-out, background-color 150ms ease-in-out;
+}
+
+[type="submit"],
+[type="button"] {
+  font-family: 'Crimson Text', serif;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+.layout-container {
+  width: 90%;
+  max-width: 1100px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* .log-jumbo > .log-jumbo__inner > .layout-container {
+  padding-top: 20px;
+} */
+
+#clashGif {
+  -webkit-mask-image:
+  -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,1) 47%, rgba(0,0,0,0.70) 51%, rgba(121,121,121,0) 82%, rgba(180,180,180,1) 97%, rgba(192,192,192,1) 100%);
+  height: 340px;
+  width: 700px;
+  /* display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%; */
+}
+
+
+.layout-flex {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+@media (min-width: 600px) {
+  .layout-flex {
+    flex-direction: row;
+  }
+}
+
+.layout-flex-spacer {
+  flex: 1 auto;
+}
+
+/** Layouts*/
+
+.layout-row {
+  display: flex;
+  /* flow-flow: row wrap; */
+}
+
+.layout-row--centered {
+  align-items: center;
+}
+
+.layout-row > .layout-col {
+  flex: 1 auto;
+}
+
+/** Button styles*/
+
+#log-button {
+  color: rgba(193,247,246,0.9);
+  background-color: rgba(30,35,40,0.6);
+  border: 1px outset  rgba(193,247,246,0.9);
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 4px;
+  padding: 8px 12px;
+}
+
+#log-button:hover {
+  color: rgb(215, 247, 246, 1);
+  box-shadow: 0 5px 15px rgba(23, 46, 59, 0.9);
+  border: 1px outset  rgba(200,247,246,1);
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-family: 'Crimson Text', serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.button--solid {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: rgba(255,255,255,0.9);
+  border: 2px outset;
+  border-image: linear-gradient(
+    rgba(233,194,111,0.8),
+    rgba(132,88,3, 0.8)
+  ) 1;
+  margin-top: 5px;
+}
+
+.button--solid:hover {
+  color: rgba(255,255,255,1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border: 2px outset;
+  border-image: linear-gradient(
+    rgba(233,194,111,1),
+    rgba(132,88,3, 1)
+  ) 1;
+}
+
+/** Header styles*/
+
+.log-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+@media (min-width: 600px) {
+  .log-header > .layout-flex {
+    align-items: center;
+  }
+}
+
+.log-title {
+  font-size: 20px;
+  line-height: 48px;
+  font-family: 'Crimson Text', serif;
+}
+
+.log-title > img {
+  margin-bottom: 10px;
+  height: 45px;
+  width: 45px;
+}
+
+.log-header a {
+  color: #fff;
+}
+
+.log-nav > a {
+  padding: 0 16px;
+  line-height: 80px;
+  /* color: #ca9d4b; */
+  font-weight: bold;
+  font-size: 16px;
+  /* font-family: 'Crimson Text', serif; */
+  font-weight: bold;
+  /* color: #c9aa71; */
+}
+
+.log-jumbo {
+  background-color: #000;
+  background:
+  linear-gradient(
+    rgba(0, 0, 0, 0.30),
+    rgba(0, 0, 0, 1)
+    ),
+    url('https://i1.wp.com/es.me/wp-content/uploads/2018/02/Esports-Dubai-X-stadium.jpg?fit=1220%2C813&ssl=1');
+  background-size: cover;
+  background-position: center;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+@media (max-width: 599px) {
+  .log-jumbo .layout-row {
+    flex-direction: column;
+  }
+
+  .log-jumbo .layout-col {
+    margin-bottom: 24px;
+  }
+}
+
+.log-jumbo__content > h2, h1 {
+  font-weight: 800px;
+  line-height: 0.4;
+  text-transform: uppercase;
+  /* color: rgba(187,154,90); */
+  /* font-family: 'Crimson Text', serif; */
+}
+
+
+@media (min-width: 600px) {
+  .log-jumbo {
+    padding: 48px 0 64px;
+    padding-top: calc(64px + 48px);
+  }
+
+  .site-jumbo__content > h2 {
+    font-size: 60px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .log-jumbo {
+    padding-bottom: 100px;
+  }
+}
+
+.sign-up {
+  margin-top: 70px;
+  padding: 24px;
+  background-color: rgba(1,10,19,0.85);
+  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.9);
+}
+
+@media (min-width: 600px) {
+  .sign-up {
+    max-width: 350px;
+    margin-right: 0;
+    margin-left: auto;
+    padding-right: 36px;
+    padding-left: 36px;
+  }
+}
+
+.sign-up a {
+  color: #fff;
+}
+
+.sign-up h3 {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.sign-up__inner > div {
+  margin-bottom: 24px;
+}
+
+.sign-up label {
+  display: none;
+}
+
+.sign-up input {
+  width: 100%;
+}
+
+.sign-up [type="userName"],
+.sign-up [type="password"] {
+  color: rgb(236,228,209);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.sign-up p {
+  margin-bottom: 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+.sign-up p,
+.sign-up a {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.sign-up a {
+  text-decoration: underline;
+}
+
+.slice {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+@media (min-width: 1000px) {
+  .slice {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+}
+
+.slice h2 {
+  margin-bottom: 12px;
+}
+
+.slice--teams {
+  background: 
+  linear-gradient(
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.3)
+    ),
+  url("/assets/img/battle1.jpg");
+  background-color: rgba(4, 19, 59, 1);
+  background-size: cover;
+  color: #fff;
+}
+
+.slice--teams h2 {
+  margin-bottom: 24px;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (min-width: 600px) {
+  .slice--teams {
+    padding: 72px 0;
+  }
+
+  .slice--teams h2 {
+    margin-bottom: 48px;
+  }
+
+}
+
+.logos-list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.logos-list img {
+  max-width: 110px;
+}
+
+@media (max-width: 599px) {
+  .logos-list {
+    flex-flow: wrap;
+  }
+
+  .logos-list > li {
+    flex: 0 50%;
+  }
+
+  .logos-list > li:last-child {
+    margin: auto;
+  }
+}
+
+@media (min-width: 600px) {
+  .logos-list {
+    margin-bottom: 48px;
+  }
+}
+
+#zedVideo {
+  /* position: fixed; */
+  right: 0;
+  bottom: 0;
+  min-width: 1000px; 
+  min-height: 700px;
+  z-index: -99
+}

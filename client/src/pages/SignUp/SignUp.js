@@ -63,7 +63,7 @@ handleInputChange = event => {
             value={this.state.password}
             name="password"
             onChange={this.handleInputChange}
-            type="text"
+            type="password"
             placeholder="Password"
           />
           <input
