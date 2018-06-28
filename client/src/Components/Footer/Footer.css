@@ -3,10 +3,19 @@ footer {
   border-bottom: 1px solid #2c2c2c;
   border-top: 1px solid #2c2c2c;
   height: 60px;
-  
+  color: white;
 
 }
 
-.lol-logo {
-  font-size: 22px;
+
+
+
+#copyright {
+  float: right;
+  width: 100%;
+  color: white;
+  font-size: 15px;
+  margin-top: 18px;
+  text-align: center;
+
 }
