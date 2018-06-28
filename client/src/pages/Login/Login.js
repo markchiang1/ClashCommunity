@@ -12,7 +12,7 @@ class Login extends Component {
               <div className="layout-flex-spacer"></div>
               <div className="log-nav">
                 <a href="#">TEAMS</a>
-                <button id='log-button' href="#">SIGN UP</button>
+                <a href='/signup'><button id='log-button' href="/signup">SIGN UP</button></a>
               </div>
             </div>
           </header>
@@ -46,7 +46,7 @@ class Login extends Component {
                             <input type="submit" className="button button--solid" value="START" />
                           </div>
                           <div>
-                            <p>Don't have an account? <a href="#">Sign up!</a></p>
+                            <p>Don't have an account? <a href="/signup">Sign up!</a></p>
                           </div>
                         </div>
                       </form>
