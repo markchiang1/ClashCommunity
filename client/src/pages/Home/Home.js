@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
+import NavBar from '../../Components/NavBar';
 import Roles from '../../Components/Roles';
 import Info from '../../Components/Info';
-import NavBar from '../../Components/NavBar';
 
 class Home extends Component {
 
