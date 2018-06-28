@@ -49,7 +49,7 @@ handleInputChange = event => {
   render() {
     // 
     return (
-        <div class="container">
+        <div className="container">
         
         <form className="form">
           <input
