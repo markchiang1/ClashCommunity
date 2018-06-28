@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Footer from "./Components/Footer";
 import NavBar from './Components/NavBar';
 import Players from "./pages/Players";
 import Home from "./pages/Home";
@@ -34,8 +35,10 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
 
             </Switch>
+          <Footer />
           </div>
         </Router>
+
     )
   }
 }

@@ -251,6 +251,8 @@ button {
 
 .sign-up input {
   width: 100%;
+  color: rgb(236,228,209);
+
 }
 
 .sign-up [type="userName"],
