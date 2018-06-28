@@ -48,7 +48,7 @@ class Players extends Component {
                 ))}
               </List>
             ) : (
-              <h3>No Results to Display</h3>
+              <h3></h3>
             )}
           </Col>
         </Row>
