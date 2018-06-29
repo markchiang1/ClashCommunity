@@ -9,12 +9,13 @@ const dbConnection = require('./db') // loads our connection to the mongo databa
 const passport = require('./db/passport')
 const mongoose = require("mongoose");
 const app = express();
-const routes = require("./routes");
+const routes = require("./routes/routes");
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, './client'));
+app.use(express.static(path.join(__dirname, './client')));
 
 // ===== Middleware oauth====
 app.use(morgan('dev'))
@@ -64,18 +65,33 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Add routes, both API and view
-app.use(routes);
+var db = process.env.MONGODB_URI || "mongodb://localhost/clash"
 
-
-// Send every request to the React app
-// Define any API routes before this runs
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// Connect mongoose to our database
+mongoose.connect(db, function(error) {
+  if (error) {
+    console.error(error);
+  }
+  else {
+    console.log("mongoose connection is successful");
+  }
 });
 
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/clash");
+// enable CORS
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+  next();
+});
+
+app.use("/", routes);
+
+app.post("/api/players", playerController.create);
+
+app.get("/api/players", playerController.index);
+
+app.delete("/api/players/:id", playerController.destroy);
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

@@ -1,37 +1,40 @@
-const db = require("../models");
+const Player = require('../models/Player');
 
-// Defining methods for the playerController
 module.exports = {
-  findAll: function(req, res) {
-    db.player
-      .find(req.query)
-      .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  findById: function(req, res) {
-    db.player
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  create: function(req, res) {
-    db.player
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  update: function(req, res) {
-    db.player
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  remove: function(req, res) {
-    db.player
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  }
+  	index: function(req, res) {
+        var query;
+        if (req.query) {
+            query = req.query;
+        }
+        else {
+            query = req.params.id ? { _id: req.params.id } : {};
+        }
+        Player.find(query)
+            .then(function(doc) {
+                res.json(doc);
+            }).catch(function(err) {
+                res.json(err);
+            });
+    },
+  	// This method handles creating new Players
+    create: function(req, res) {
+      	const savedPlayer 	= {};
+      	savedPlayer.playerName 	= req.body.Player.playerName;
+    	  savedPlayer.role	= req.body.Player.role;
+        Player.create(savedPlayer).then(function(doc) {
+          	res.json(doc);
+        }).catch(function(err) {
+          	res.json(err);
+        });
+    },
+      // This method handles deleting Players
+    destroy: function(req, res) {
+        Player.remove({
+          _id: req.params.id
+        }).then(function(doc) {
+          res.json(doc);
+        }).catch(function(err) {
+          res.json(err);
+        });
+    }
 };
