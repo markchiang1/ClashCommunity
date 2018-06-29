@@ -1,44 +1,86 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
+import axios from 'axios';
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Footer from "./Components/Footer";
-import NavBar from './Components/NavBar';
-import Players from "./pages/Players";
+// import NavBar from './Components/NavBar';
+// import Players from "./pages/Players";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
-import API from "./utils/API";
-import SignUp from "./pages/SignUp"
 import Login from "./pages/Login";
 
+
 class App extends Component {
+	constructor() {
+		super()
+		this.state = {
+			loggedIn: false,
+			user: null
+		}
+		this._logout = this._logout.bind(this)
+		this._login = this._login.bind(this)
+	}
+	componentDidMount() {
+		axios.get('/auth/user').then(response => {
+			console.log(response.data)
+			if (!!response.data.user) {
+				console.log('THERE IS A USER')
+				this.setState({
+					loggedIn: true,
+					user: response.data.user
+				})
+			} else {
+				this.setState({
+					loggedIn: false,
+					user: null
+				})
+			}
+		})
+	}
 
+	_logout(event) {
+		event.preventDefault()
+		console.log('logging out')
+		axios.post('/auth/logout').then(response => {
+			console.log(response.data)
+			if (response.status === 200) {
+				this.setState({
+					loggedIn: false,
+					user: null
+				})
+			}
+		})
+	}
 
-  handleFormSubmit = event => {
-    // When the form is submitted, prevent its default behavior, get player update and set state
-    event.preventDefault();
-    API.getPlayers(this.state.players)
-      .then(res => this.setState({ players: res.data }))
-      .catch(err => console.log(err));
-  };
-
+	_login(username, password) {
+		axios
+			.post('/auth/login', {
+				username,
+				password
+			})
+			.then(response => {
+				console.log(response)
+				if (response.status === 200) {
+					// update the state
+					this.setState({
+						loggedIn: true,
+						user: response.data.user
+					})
+				}
+			})
+	}
   render() {
     return (
         <Router>
           <div>
+            {/* <NavBar /> */}
             <Switch>
-              <Route exact path="/" component={Login} />
-              <Route exact path="/home" component={Home} />
-              <Route exact path="/players" component={Players} />
-              <Route exact path="/players/:id" component={Profile} />
-
-              <Route exact path="/signup" component={SignUp} />
+              <Route exact path="/" component={Home} />
+              {/* <Route exact path="/players" component={Players} /> */}
+              {/* <Route exact path="/players/:id" component={Profile} /> */}
               <Route exact path="/login" component={Login} />
-
             </Switch>
-          <Footer />
           </div>
         </Router>
-
     )
   }
 }

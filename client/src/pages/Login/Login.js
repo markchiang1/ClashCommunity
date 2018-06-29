@@ -2,8 +2,37 @@ import React, { Component, Fragment } from 'react';
 import './Login.css'
 
 class Login extends Component {
+  constructor() {
+		super()
+		this.state = {
+			username: '',
+			password: '',
+			// redirectTo: null
+		}
+		// this.googleSignin = this.googleSignin.bind(this)
+		this.handleSubmit = this.handleSubmit.bind(this)
+		this.handleChange = this.handleChange.bind(this)
+	}
+
+	handleChange(event) {
+		this.setState({
+			[event.target.name]: event.target.value
+		})
+	}
+
+	handleSubmit(event) {
+		event.preventDefault()
+		console.log('handleSubmit')
+		this.props._login(this.state.username, this.state.password)
+		this.setState({
+			redirectTo: '/Home.js'
+		})
+	}
   render() {
-    return (
+    // if (this.state.redirectTo) {
+		// 	return <Redirect to={{ pathname: this.state.redirectTo }} />
+    // } else { 
+      return (
       <Fragment>
         <div className="site">
           <header className="log-header">
@@ -11,8 +40,8 @@ class Login extends Component {
               <a href="/" className="log-title"><img src="https://cdn.shopify.com/s/files/1/3101/3620/products/1_LoL_Logo_editado_300x300.png?v=1519654839" alt="logo" /><strong>CLASH</strong>COMP</a>
               <div className="layout-flex-spacer"></div>
               <div className="log-nav">
-                <a href="#">TEAMS</a>
-                <a href='/signup'><button id='log-button' href="/signup">SIGN UP</button></a>
+                <a href="#Home">TEAMS</a>
+                <button id='log-button' href="#" onClick={this.handleSubmit}>SIGN UP</button>
               </div>
             </div>
           </header>
@@ -36,17 +65,25 @@ class Login extends Component {
                           <h5><strong>SIGN IN</strong></h5>
                           <div>
                             <label>UserName</label>
-                            <input type="text" name="userName" id="userName" placeholder="User Name" />
+                            <input type="text" name="username" id="username" placeholder="User Name" 
+                            value={this.state.username}
+                            onChange={this.handleChange}
+                            />
                           </div>
                           <div>
                             <label>Password</label>
-                            <input type="password" name="password" id="password" placeholder="Password" />
+                            <input type="password" name="password" id="password" placeholder="Password" 
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                            />
                           </div>
                           <div>
+                          {/* <input type="submit" className="button button--solid" onClick={this.handleSubmit} value="START">START</input> */}
+                          {/* original code below */}
                             <input type="submit" className="button button--solid" value="START" />
                           </div>
                           <div>
-                            <p>Don't have an account? <a href="/signup">Sign up!</a></p>
+                            <p>Don't have an account? <a href="#Home">Sign Up</a></p>
                           </div>
                         </div>
                       </form>
@@ -63,54 +100,53 @@ class Login extends Component {
               <h2>Find Your Dream Team</h2>
                 <ul className="logos-list">
                   <li>
-                    <a href="#">
+                    <a href="#Home">
                       <img src="https://api.finalround.gg/themes/images/team-tl.png" alt="Team Liquid" />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="#Home">
                       <img src="https://api.finalround.gg/themes/images/team-fnc.png" alt="Fnatic" />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="#Home">
                       <img src="https://api.finalround.gg/themes/images/team-c9.png" alt="Cloud 9" />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="#Home">
                       <img src="https://api.finalround.gg/themes/images/team-tsm.png" alt="TSM" />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="#Home">
                       <img src="https://api.finalround.gg/themes/images/team-imt.png" alt="Immortals" />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="#Home">
                       <img src="https://api.finalround.gg/themes/images/team-og.png" alt="Optic Gaming" />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="#Home">
                       <img src="https://api.finalround.gg/themes/images/team-p1.png" alt="Pheonix1" />
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
-            <iframe width="820" height="465" frameBorder="3" allowFullScreen loop="1"
-              src="https://www.youtube.com/embed/RFmJynSYT1k?autoplay=1&controls=1&showinfo=0&autohide=1&mute=1&frameborder=0&loop=1">
+            <iframe title="This is a unique title" width="820" height="465" frameBorder="3" allowFullScreen loop="1" 
+              src="https://www.youtube.com/embed/vccdrVAAs3o?autoplay=1&controls=0&showinfo=0&autohide=1&mute=1&frameborder=0">
             </iframe>
 
           </section>
-        
-
+          
         </div>
       </Fragment>
     );
   }
 }
-
+// }
 export default Login;
