@@ -1,16 +1,12 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from 'react'
 // import './Scheduler.css'
 
 const Scheduler = props => {
   return (
     <Fragment>
-      <div>
-      </div>
+      <div />
     </Fragment>
-  );
-};
+  )
+}
 
-
-export default Scheduler;
-
-
+export default Scheduler

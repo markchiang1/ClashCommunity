@@ -1,16 +1,16 @@
-const router = require("express").Router();
-const playerController = require("../../controllers/playerController");
+const router = require('express').Router()
+const playerController = require('../../controllers/playerController')
 
 // Matches with "/api/player"
-router.route("/")
+router.route('/')
   .get(playerController.findAll)
-  .post(playerController.create);
+  .post(playerController.create)
 
 // Matches with "/api/player/:id"
 router
-  .route("/:id")
+  .route('/:id')
   .get(playerController.findById)
   .put(playerController.update)
-  .delete(playerController.remove);
+  .delete(playerController.remove)
 
-module.exports = router;
+module.exports = router

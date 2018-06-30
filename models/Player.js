@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 const playerSchema = new Schema({
   playerName: { type: String, required: true },
@@ -17,10 +17,10 @@ const playerSchema = new Schema({
     thursday: [],
     friday: [],
     saturday: [],
-    sunday: [],
+    sunday: []
   }
-});
+})
 
-const Player = mongoose.model("Player", playerSchema);
+const Player = mongoose.model('Player', playerSchema)
 
-module.exports = Player;
+module.exports = Player
