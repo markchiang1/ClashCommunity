@@ -21,7 +21,8 @@ class Login extends Component {
 	}
 
 	handleSubmit(event) {
-		event.preventDefault()
+    event.preventDefault()
+    console.log(this.props)
 		console.log('handleSubmit')
 		this.props._login(this.state.username, this.state.password)
 		this.setState({
@@ -80,7 +81,7 @@ class Login extends Component {
                           <div>
                           {/* <input type="submit" className="button button--solid" onClick={this.handleSubmit} value="START">START</input> */}
                           {/* original code below */}
-                            <input type="submit" className="button button--solid" value="START" />
+                            <input type="submit" onClick={this.handleSubmit} className="button button--solid" value="START" />
                           </div>
                           <div>
                             <p>Don't have an account? <a href="#Home">Sign Up</a></p>

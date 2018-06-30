@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
+// import Matchlist from "./pages/Matchlist";
 
 
 class App extends Component {
@@ -59,6 +60,8 @@ class App extends Component {
 			})
 			.then(response => {
 				console.log(response)
+				//right now this method is returning 200 everytime & setting state of app to logged in.
+				//We need to figure out how to set up the post route on line 57
 				if (response.status === 200) {
 					// update the state
 					this.setState({
@@ -68,21 +71,26 @@ class App extends Component {
 				}
 			})
 	}
-  render() {
-    return (
-        <Router>
-          <div>
-            {/* <NavBar /> */}
-            <Switch>
-              <Route exact path="/" component={Home} />
-              {/* <Route exact path="/players" component={Players} /> */}
-              {/* <Route exact path="/players/:id" component={Profile} /> */}
-              <Route exact path="/login" component={Login} />
-            </Switch>
-          </div>
-        </Router>
-    )
-  }
+	render() {
+		return (
+			<Router>
+				<div>
+					{/* <NavBar /> */}
+					<Switch>
+						<Route exact path="/" component={Home} />
+						{/* <Route exact path="/players" component={Players} /> */}
+						{/* <Route exact path="/players/:id" component={Profile} /> */}
+						{/* <Route exact path="/login" component={Login} _login={this._login}/> */}
+						<Route
+							exact path='/login'
+							render={(props) => <Login {...props} _login={this._login} />}
+						/>
+						{/* <Route exact path="/matchlist" component={Matchlist} /> */}
+					</Switch>
+				</div>
+			</Router>
+		)
+	}
 }
 
 export default App;
