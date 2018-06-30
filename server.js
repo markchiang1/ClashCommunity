@@ -38,26 +38,26 @@ app.use(passport.initialize())
 app.use(passport.session()) // will call the deserializeUser
 
 // ===== testing middleware =====
-// app.use(function(req, res, next) {
-// 	console.log('===== passport user =======')
-// 	console.log(req.session)
-// 	console.log(req.user)
-// 	console.log('===== END =======')
-// 	next()
-// })
+app.use(function(req, res, next) {
+	console.log('===== passport user =======')
+	console.log(req.session)
+	console.log(req.user)
+	console.log('===== END =======')
+	next()
+})
 // testing
-// app.get(
-// 	'/auth/google/callback',
-// 	(req, res, next) => {
-// 		console.log(`req.user: ${req.user}`)
-// 		console.log('======= /auth/google/callback was called! =====')
-// 		next()
-// 	},
-// 	passport.authenticate('google', { failureRedirect: '/login' }),
-// 	(req, res) => {
-// 		res.redirect('/')
-// 	}
-// )
+app.get(
+	'/auth/google/callback',
+	(req, res, next) => {
+		console.log(`req.user: ${req.user}`)
+		console.log('======= /auth/google/callback was called! =====')
+		next()
+	},
+	passport.authenticate('google', { failureRedirect: '/login' }),
+	(req, res) => {
+		res.redirect('/')
+	}
+)
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -75,8 +75,12 @@ app.get("*", function(req, res) {
 });
 
 // Connect to the Mongo DB
+
+// this one will link to the scripts/seedDB.js
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/clash");
-//mongodb://localhost:27017/clash-community
+
+// this one links to user
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/test-clash");
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
